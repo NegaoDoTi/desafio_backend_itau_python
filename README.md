@@ -6,6 +6,21 @@ Git: Para clonar o repositório.
 
 Docker: Para executar o projeto em um container.
 
+# Como executar a API
+1. Clone o projeto
+
+2. Faça o build da Imagem do Docker
+
+```bash
+    docker build -t api_transacoes_python .
+```
+
+3. Inicie o Container Docker
+
+```bash
+    docker run -p 8000:8000 api_transacoes_python
+```
+
 ## Documentação da API
 
 #### Inserir Transações
