@@ -1,4 +1,5 @@
 from validators.date_validator import is_iso8601, is_past
+from datetime import datetime
 
 class TransactionController:
     
@@ -18,7 +19,13 @@ class TransactionController:
             if not is_iso8601(data["dataHora"]) or not is_past(data["dataHora"]):
                 return "", 422
             
-            self.transactions.append(data)
+            now = datetime.now().isoformat()
+            
+            transaction = {
+                f"{now}" : data
+            }
+            
+            self.transactions.append(transaction)
             
             return "", 201
         except:
