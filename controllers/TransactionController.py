@@ -18,7 +18,7 @@ class TransactionController:
             if not is_iso8601(data["dataHora"]) or not is_past(data["dataHora"]):
                 return "", 422
             
-            self.statistics.append(data)
+            self.transactions.append(data)
             
             return "", 201
         except:
