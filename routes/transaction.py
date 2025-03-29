@@ -9,10 +9,10 @@ transactions = TransactionController()
 def insert_transaction():
     if request.method == "POST":
         print(transactions.statistics)
-        transactions.insert(request)
+        return transactions.insert(request)
 
 @transaction_route.route("/transacao", methods=["DELETE"])
 def delete_all_transaction():
     if request.method == "DELETE":
         print(transactions.statistics)
-        transactions.delete()
+        return transactions.delete()
