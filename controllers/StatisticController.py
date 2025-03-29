@@ -21,20 +21,20 @@ class StatisticController:
                 return jsonify(
                     {
                         "count" : 0,
-                        "sum" : 0,
-                        "avg" : 0,
-                        "min" : 0,
-                        "max" : 0
+                        "sum" : round(0, 2),
+                        "avg" : round(0, 2),
+                        "min" : round(0, 2),
+                        "max" : round(0, 2)
                     }
                 ), 200
             
             return jsonify(
                 {
                     "count" : len_valid_values,
-                    "sum" : sum(valid_values),
-                    "avg" : sum(valid_values)/len_valid_values,
-                    "min" : min(valid_values),
-                    "max" : max(valid_values)
+                    "sum" : round(sum(valid_values), 2),
+                    "avg" : round(sum(valid_values)/len_valid_values, 2),
+                    "min" : round(min(valid_values),2),
+                    "max" : round(max(valid_values), 2)
                 }
             ), 200
         
