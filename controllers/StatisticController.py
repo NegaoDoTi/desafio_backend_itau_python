@@ -28,11 +28,13 @@ class StatisticController:
                     }
                 ), 200
             
+            sum_valid_values = sum(valid_values)
+            
             return jsonify(
                 {
                     "count" : len_valid_values,
-                    "sum" : round(sum(valid_values), 2),
-                    "avg" : round(sum(valid_values)/len_valid_values, 2),
+                    "sum" : round(sum_valid_values, 2),
+                    "avg" : round(sum_valid_values/len_valid_values, 2),
                     "min" : round(min(valid_values),2),
                     "max" : round(max(valid_values), 2)
                 }
