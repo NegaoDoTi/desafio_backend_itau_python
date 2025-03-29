@@ -1,0 +1,18 @@
+from re import match
+from dateutil.parser import isoparse
+
+def is_iso8601(data_string:str) -> bool:
+    iso8601_re = r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}[+-]\d{2}:\d{2}$"
+    
+    if not isinstance(data_string, str):
+        return False
+        
+    if bool(match(iso8601_re, data_string)):
+        try:
+            isoparse(data_string)
+            return True
+        
+        except ValueError:
+            return False
+        
+    return False
