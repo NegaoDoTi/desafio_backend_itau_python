@@ -25,3 +25,12 @@ def is_past(data_string:str) -> bool:
     now = datetime.now(date_req.tzinfo)
     
     return date_req <= now
+
+def last_seconds(date_string:str) -> bool:
+    date_req = isoparse(date_string)
+    
+    now = datetime.now(date_req.tzinfo)
+    
+    verify = (now - date_req).total_seconds()
+    
+    return 0 <= verify <= 60
