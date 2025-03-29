@@ -26,11 +26,11 @@ def is_past(data_string:str) -> bool:
     
     return date_req <= now
 
-def last_seconds(date_string:str) -> bool:
+def last_seconds(date_string:str, interval_seconds:int = 60) -> bool:
     date_req = isoparse(date_string)
     
     now = datetime.now(date_req.tzinfo)
     
     verify = (now - date_req).total_seconds()
     
-    return 0 <= verify <= 60
+    return 0 <= verify <= interval_seconds

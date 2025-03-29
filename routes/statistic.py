@@ -7,4 +7,6 @@ statistic_route = Blueprint("statistic_route", __name__, url_prefix="/")
 @statistic_route.route("/estatistica", methods=["GET"])
 def get_statistics():
     if request.method == "GET":
-        return StatisticController().get_statistics(transaction_controller.transactions)
+        interval_seconds = request.args.get("intervaloSegundos", default=60, type=int)
+        
+        return StatisticController().get_statistics(transaction_controller.transactions, interval_seconds)

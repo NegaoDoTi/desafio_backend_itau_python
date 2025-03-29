@@ -4,15 +4,16 @@ from flask import jsonify
 
 class StatisticController:
 
-    def get_statistics(self, transactions:list):
+    def get_statistics(self, transactions:list, interval_seconds:int):
         try:
+            
             valid_values = []
             
             for transaction in transactions:
                 
                 key = next(iter(transaction))
                 
-                if last_seconds(key):
+                if last_seconds(key, interval_seconds):
                     valid_values.append(transaction[key]["valor"])
             
             len_valid_values = len(valid_values)
