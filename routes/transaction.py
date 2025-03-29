@@ -10,14 +10,9 @@ def insert_transaction():
     if request.method == "POST":
         print(transactions.statistics)
         transactions.insert(request)
-        
-    else:
-        return Response(status=405)
 
 @transaction_route.route("/transacao", methods=["DELETE"])
 def delete_all_transaction():
     if request.method == "DELETE":
         print(transactions.statistics)
         transactions.delete()
-    else:
-        return Response(status=405)
