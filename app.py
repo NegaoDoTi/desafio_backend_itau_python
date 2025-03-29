@@ -10,4 +10,4 @@ app.register_blueprint(transaction_route)
 app.register_blueprint(statistic_route)
 
 if __name__ == "__main__":
-    app.run("localhost", debug=True)
+    app.run("localhost", debug=False)
