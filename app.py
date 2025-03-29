@@ -10,4 +10,4 @@ app.register_blueprint(transaction_route)
 app.register_blueprint(statistic_route)
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", debug=False)
+    app.run("0.0.0.0", port=8000, debug=False)
