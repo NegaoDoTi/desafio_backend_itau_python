@@ -4,3 +4,4 @@ from os import getenv
 load_dotenv()
 
 SECRET_KEY = getenv("SECRET_KEY")
+PORT = getenv("PORT")

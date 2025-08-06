@@ -1,5 +1,5 @@
 from flask import Flask
-from config.config import SECRET_KEY
+from config.config import SECRET_KEY, PORT
 from routes.transaction import transaction_route
 from routes.statistic import statistic_route
 
@@ -10,4 +10,4 @@ app.register_blueprint(transaction_route)
 app.register_blueprint(statistic_route)
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", port=8000, debug=False)
+    app.run("0.0.0.0", port=PORT, debug=False)
