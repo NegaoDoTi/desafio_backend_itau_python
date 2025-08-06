@@ -14,7 +14,7 @@ class StatisticController:
                 key = next(iter(transaction))
                 
                 if last_seconds(key, interval_seconds):
-                    valid_values.append(transaction[key]["valor"])
+                    valid_values.append((transaction[key]["valor"]))
             
             len_valid_values = len(valid_values)
             
@@ -34,10 +34,10 @@ class StatisticController:
             return jsonify(
                 {
                     "count" : len_valid_values,
-                    "sum" : round(sum_valid_values, 2),
-                    "avg" : round(sum_valid_values/len_valid_values, 2),
-                    "min" : round(min(valid_values),2),
-                    "max" : round(max(valid_values), 2)
+                    "sum" : float(round(sum_valid_values, 2)),
+                    "avg" : float(round(sum_valid_values/len_valid_values, 2)),
+                    "min" : float(round(min(valid_values),2)),
+                    "max" : float(round(max(valid_values), 2))
                 }
             ), 200
         

@@ -1,5 +1,6 @@
 from validators.date_validator import is_iso8601, is_past
 from datetime import datetime
+from decimal import Decimal
 
 class TransactionController:
     
@@ -18,6 +19,8 @@ class TransactionController:
             
             if not is_iso8601(data["dataHora"]) or not is_past(data["dataHora"]):
                 return "", 422
+            
+            data["valor"] = Decimal(str(data["valor"]))
             
             now = datetime.now().isoformat()
             
